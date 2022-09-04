@@ -4,7 +4,7 @@ import variables from "./types.config";
 dotenv.config();
 const connectToDb: () => Promise<void> = async () => {
   try {
-    const dbUrl = `mongodb+srv://PhamCong01:Cong2001@cluster0.qr5m1kr.mongodb.net/?retryWrites=true&w=majority`;
+    const dbUrl = `mongodb+srv://${process.env.NAME_DATABASE}:${process.env.PASSWORD_DATABASE}@cluster0.qr5m1kr.mongodb.net/?retryWrites=true&w=majority`;
     const db = await mongoose.connect(dbUrl, () => {
       console.log("connected to db");
     });
